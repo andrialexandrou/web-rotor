@@ -1,53 +1,45 @@
-import * as React from 'react';
-import {browser, Tabs} from 'webextension-polyfill-ts';
+import * as React from "react";
+import { browser, Tabs } from "webextension-polyfill-ts";
 
-import './styles.scss';
+import "./styles.scss";
 
-function openWebPage(url: string): Promise<Tabs.Tab> {
-  return browser.tabs.create({url});
+
+const contentPort = window.chrome.runtime.connect({ name: 'web-rotor' });
+
+contentPort.onMessage.addListener(messageHandler);
+
+function messageHandler (message) {
+    console.log('received message', message)
 }
 
+
+// function messageHandler (message) {
+//   switch (message.purpose) {
+//     case 'dom_deliver':
+//       console.log('message', message)
+//       break;
+//   }
+// }
+
+setTimeout(() => {
+  console.log("trying to send")
+  contentPort.postMessage({
+    content: 'hello from the popup'
+  })
+}, 1000)
+
 const Popup: React.FC = () => {
+  console.log("opened oppup")
   return (
     <section id="popup">
-      <h2>WEB-EXTENSION-STARTER</h2>
+      <h2>Web Content Rotor</h2>
       <button
         id="options__button"
         type="button"
-        onClick={(): Promise<Tabs.Tab> => {
-          return openWebPage('options.html');
-        }}
+        onClick={() => {}}
       >
         Options Page
       </button>
-      <div className="links__holder">
-        <ul>
-          <li>
-            <button
-              type="button"
-              onClick={(): Promise<Tabs.Tab> => {
-                return openWebPage(
-                  'https://github.com/abhijithvijayan/web-extension-starter'
-                );
-              }}
-            >
-              GitHub
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              onClick={(): Promise<Tabs.Tab> => {
-                return openWebPage(
-                  'https://www.buymeacoffee.com/abhijithvijayan'
-                );
-              }}
-            >
-              Buy Me A Coffee
-            </button>
-          </li>
-        </ul>
-      </div>
     </section>
   );
 };
