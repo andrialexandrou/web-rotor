@@ -1,9 +1,9 @@
-function refAndGetHeadings(document, {dataPrefix}) {
-    const headings = []
+function refAndGetHeadings(document: any) {
+    const headings: any[] = []
     const headingsFromDOM = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
-    headingsFromDOM.forEach((element, i) => {
+    headingsFromDOM.forEach((element: any, i: any) => {
         const dataId = 'h-' + i
-        element.setAttribute(dataPrefix, dataId);
+        element.setAttribute('something', dataId);
         // console.log('element', element)
         const headingLevel = element.tagName.replace('H', '')
         const headingInt = Number(headingLevel)
