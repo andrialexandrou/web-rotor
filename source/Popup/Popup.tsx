@@ -4,8 +4,8 @@ import * as React from "react";
 import "./styles.scss";
 console.log('Popup.tsx', new Date())
 
-const Popup: React.FC = () => {
-  console.log("opened oppup")
+const Popup: React.FC = (props) => {
+  console.log("opened oppup", props)
   return (
     <section id="popup">
       <h2>Web Content Rotor</h2>

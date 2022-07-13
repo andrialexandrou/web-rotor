@@ -1,9 +1,8 @@
 // @ts-nocheck
-console.log('hello world from content script and again and again', new Date());
-// import refAndGetHeadings from "./headings"
+console.log('helloworld from content script and again and again', new Date());
+import refAndGetHeadings from "./headings"
 
-// const dataPrefix = 'data-rotor'
-
+const dataPrefix = 'data-rotor'
 
 const chrome = window.chrome
 let debug = true
@@ -11,28 +10,29 @@ let contentPort
 
 chrome.runtime.onConnect.addListener(connectionHandler);
 function connectionHandler (port: any) {
-  if (debug) console.log(`port.name: ${port.name}`);
-  contentPort = port;
-  contentPort.onMessage.addListener(portMessageHandler);
+    if (debug) console.log(`port.name: ${port.name}`);
+    contentPort = port;
+    contentPort.onMessage.addListener(portMessageHandler);
 }
 function portMessageHandler (message: any) {
-  console.log('message', message, new Date())
+    console.log('RECEIVING', message, new Date())
+    if (message.id === 'init') {
+        const headings = refAndGetHeadings(document, {dataPrefix})
+        const message = {
+            id: 'page_content',
+            content: {
+                headings
+            }
+        }
+        sendMessage(message);
+    }
+}
+
+function sendMessage(message) {
+    console.log('SENDING MESSAGE', message)
+    contentPort.postMessage(message)
 }
 
 ////////////////////////////////////////////////////////////////////////////
-
-// function onPopupOpened() {
-//     const headings = refAndGetHeadings(document, {dataPrefix})
-//     const message = {
-//         purpose: 'dom_deliver',
-//         content: {
-//             headings
-//         }
-//     }
-//     popupPort.postMessage(message);
-// }
-
-// onPopupOpened()
-
 
 export {};
