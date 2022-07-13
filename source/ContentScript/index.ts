@@ -1,4 +1,4 @@
-console.log('helloworld from content script');
+console.log('helloworld from content script', new Date());
 import refAndGetHeadings from "./headings"
 
 const dataPrefix = 'data-rotor'

@@ -2,7 +2,7 @@ import * as React from "react";
 import { browser, Tabs } from "webextension-polyfill-ts";
 
 import "./styles.scss";
-
+console.log('Popup.tsx', new Date())
 
 const contentPort = window.chrome.runtime.connect({ name: 'web-rotor' });
 
