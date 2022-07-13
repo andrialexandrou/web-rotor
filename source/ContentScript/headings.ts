@@ -4,6 +4,7 @@ function refAndGetHeadings(document: any, {dataPrefix}: {dataPrefix: any}) {
     headingsFromDOM.forEach((element: any, i: any) => {
         const dataId = 'h-' + i
         element.setAttribute(dataPrefix, dataId);
+        // element.setAttribute("tabindex", "-1");
         const headingLevel = element.tagName.replace('H', '')
         const headingInt = Number(headingLevel)
         headings.push({

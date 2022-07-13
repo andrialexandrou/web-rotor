@@ -1,6 +1,7 @@
 // @ts-nocheck
 console.log('helloworld from content script and again and again', new Date());
 import refAndGetHeadings from "./headings"
+import jump from "./jumpToContent";
 
 const dataPrefix = 'data-rotor'
 
@@ -25,6 +26,10 @@ function portMessageHandler (message: any) {
             }
         }
         sendMessage(message);
+    }
+    if (message.id === 'jump') {
+        console.log('JUMPING TO', message.node)
+        jump(message.node)
     }
 }
 

@@ -1,11 +1,17 @@
+// @ts-nocheck
 import * as React from "react";
-// import { browser, Tabs } from "webextension-polyfill-ts";
+import { jumpToDOMNode } from "./index";
 
 import "./styles.scss";
-console.log('Popup.tsx', new Date())
 
 const Popup: React.FC = (props) => {
-  console.log("opened oppup", props)
+  console.log("opened popup", props)
+
+  setTimeout(() => {
+    console.log("trying to jump")
+    jumpToDOMNode('h-22')
+  }, 1000)
+
   return (
     <section id="popup">
       <h2>Web Content Rotor</h2>

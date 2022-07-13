@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 
 import Popup from './Popup';
 
+ReactDOM.render(<div>Hello</div>, document.getElementById('popup-root'));
+
 /*
 **  Connect to popup script and set up listener/handler
 */
@@ -24,6 +26,7 @@ async function connectToTab() {
         {name: "page-sailor-popup"}
     );
     tabPort.onMessage.addListener(contentScriptMsgHandler)
+    requestDOMData()
 }
 
 function contentScriptMsgHandler (message) {
@@ -42,9 +45,16 @@ function requestDOMData() {
     sendMessage({id: 'init'})
 }
 
-connectToTab().then(requestDOMData)
+connectToTab()//.then(requestDOMData)
     
 function paintPopup(content) {
     ReactDOM.render(<Popup headings={content.headings} />, document.getElementById('popup-root'));
 }
 
+function jumpToDOMNode(nodeId) {
+    sendMessage({id: 'jump', node: nodeId})
+}
+
+export {
+    jumpToDOMNode
+}
