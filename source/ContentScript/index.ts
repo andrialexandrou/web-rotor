@@ -3,22 +3,22 @@ import refAndGetHeadings from "./headings"
 
 const dataPrefix = 'data-rotor'
 
-let popupPort
 
-window.chrome.runtime.onConnect.addListener(connectionHandler);
+const chrome = window.chrome
+let debug = true
+let contentPort
 
+chrome.runtime.onConnect.addListener(connectionHandler);
 function connectionHandler (port) {
-  popupPort = port;
-  popupPort.onMessage.addListener(messageHandler);
+  if (debug) console.log(`port.name: ${port.name}`);
+  contentPort = port;
+  contentPort.onMessage.addListener(portMessageHandler);
+}
+function portMessageHandler (message) {
+  console.log('message', new Date())
 }
 
-// const popupPort = window.chrome.runtime.connect({ name: 'web-rotor' });
-
-// popupPort.onMessage.addListener(messageHandler);
-
-// function messageHandler (message) {
-//     console.log('received message', message)
-// }
+////////////////////////////////////////////////////////////////////////////
 
 function onPopupOpened() {
     const headings = refAndGetHeadings(document, {dataPrefix})
@@ -31,7 +31,7 @@ function onPopupOpened() {
     popupPort.postMessage(message);
 }
 
-onPopupOpened()
+// onPopupOpened()
 
 
 export {};
