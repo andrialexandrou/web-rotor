@@ -2,29 +2,31 @@
 import * as React from "react";
 import { jumpToDOMNode } from "./index";
 
+import Paper from '@mui/material/Paper';
+import MenuList from '@mui/material/MenuList';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemText from '@mui/material/ListItemText';
+
 import "./styles.scss";
 
+function selectItem(nodeId) {
+  jumpToDOMNode(nodeId)
+  window.close()
+}
+
 const Popup: React.FC = (props) => {
-  console.log("opened popup", props)
-
-  setTimeout(() => {
-    console.log("trying to jump")
-    jumpToDOMNode('h-22')
-  }, 1000)
-
   return (
     <section id="popup">
       <h1>Headings</h1>
-      <ul role="listbox" aria-label="something">
-        {props.headings.map((heading, i) => {
-          return <li 
-            role="option" 
-            tabIndex="-1" 
-            key={i}>
-              {heading.level} {heading.textContent}
-          </li>
-        })}
-      </ul>
+      <Paper sx={{ width: 320 }}>
+        <MenuList dense>
+          {props.headings.map((heading, i) => {
+            return <MenuItem onClick={() => selectItem(heading['data-id'])}>
+              <ListItemText key={i}>{heading.level} {heading.textContent}</ListItemText>
+            </MenuItem>
+          })}
+        </MenuList>
+      </Paper>
     </section>
   );
 };

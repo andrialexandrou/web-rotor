@@ -25,7 +25,6 @@ function jump(dataId) {
         if (target) {
             let options = { behavior: 'smooth', block: 'center' };
             target.setAttribute('tabindex', '-1');
-            target.setAttribute('style', 'outline: 1px solid green')
             target.focus();
             target.scrollIntoView(options);
         } else {
