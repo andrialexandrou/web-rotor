@@ -4,15 +4,9 @@
 
 body {
   color: $black;
-  background-color: $greyWhite;
-  font-size: 14px;
-  min-width: 552px;
 }
 
-
 #popup {
-  padding: 30px 20px;
-
   h1 {
     font-size: 25px;
   }
@@ -37,7 +31,6 @@ body {
 
   .links__holder {
     ul {
-      background-color: red;
       display: flex;
       margin-top: 1em;
       justify-content: space-around;
