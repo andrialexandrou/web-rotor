@@ -23,6 +23,16 @@
     "script-src": "self",
     "object-src": "self"
   },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "windows": "Alt+1",
+        "mac": "Alt+1",
+        "chromeos": "Alt+1",
+        "linux": "Alt+1"
+      }
+    }
+  },
   "__chrome|firefox__author": "abhijithvijayan",
   "__opera__developer": {
     "name": "abhijithvijayan"
