@@ -1,5 +1,4 @@
 // @ts-nocheck
-console.log('helloworld from content script and again and again', new Date());
 import refAndGetHeadings from "./headings"
 import jump from "./jumpToContent";
 
@@ -16,7 +15,6 @@ function connectionHandler (port: any) {
     contentPort.onMessage.addListener(portMessageHandler);
 }
 function portMessageHandler (message: any) {
-    console.log('RECEIVING', message, new Date())
     if (message.id === 'init') {
         const headings = refAndGetHeadings(document, {dataPrefix})
         const message = {
@@ -34,10 +32,8 @@ function portMessageHandler (message: any) {
 }
 
 function sendMessage(message) {
-    console.log('SENDING MESSAGE', message)
     contentPort.postMessage(message)
 }
 
-////////////////////////////////////////////////////////////////////////////
 
 export {};
