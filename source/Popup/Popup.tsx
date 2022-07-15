@@ -17,12 +17,19 @@ function selectItem(nodeId) {
 const Popup: React.FC = (props) => {
   return (
     <section id="popup">
-      <h1>Headings</h1>
       <Paper sx={{ width: 320 }}>
         <MenuList dense>
           {props.headings.map((heading, i) => {
-            return <MenuItem onClick={() => selectItem(heading['data-id'])}>
-              <ListItemText key={i}>{heading.level} {heading.textContent}</ListItemText>
+            return <MenuItem 
+              className={['heading', `level-${heading.level}`].join(' ')}
+              onClick={() => selectItem(heading['data-id'])}
+              autoFocus={i === 0}
+              key={heading['data-id']}
+            >
+              <ListItemText key={i}>
+                <span className="level">{heading.level}. </span>
+                <span className="heading-text">{heading.textContent}</span>
+              </ListItemText>
             </MenuItem>
           })}
         </MenuList>

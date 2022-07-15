@@ -6,9 +6,71 @@ body {
   color: $black;
 }
 
+.MuiPaper-root {
+  box-shadow: none;
+  border-radius: 0;
+}
+
 #popup {
+  // padding: 10px;
+
   h1 {
     font-size: 25px;
+  }
+
+  .heading {
+    border: 2px solid transparent;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    min-height: 28px;
+
+    &:focus,
+    &:active,
+    &:hover {
+      background-color: unset;
+      border: 2px solid red;
+    }
+
+    &:nth-child(odd) {
+      background-color: #e5e5e5;
+    }
+
+
+
+
+    .level {
+      // color: green;
+    }
+
+    .heading-text {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  .level-1 {
+    font-weight: bold;
+  }
+
+  .level-2 {
+    padding-left: 32px;
+  }
+
+  .level-3 {
+    padding-left: 48px;
+  }
+
+  .level-4 {
+    padding-left: 64px;
+  }
+
+  .level-5 {
+    padding-left: 80px;
+  }
+
+  .level-6 {
+    padding-left: 96px;
   }
 
   h2 {
