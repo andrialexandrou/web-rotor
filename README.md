@@ -183,3 +183,5 @@ Please file an issue [here](https://github.com/abhijithvijayan/web-extension-sta
 ## License
 
 MIT © [Abhijith Vijayan](https://abhijithvijayan.in)
+ 
+<!-- Icon https://www.flaticon.com/free-icon/node_4354782?term=node&page=1&position=8&page=1&position=8&related_id=4354782&origin=style -->
