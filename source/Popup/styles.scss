@@ -5,16 +5,20 @@
 body {
   color: $black;
   background-color: $greyWhite;
+  font-size: 14px;
+  min-width: 552px;
 }
 
 
 #popup {
-  min-width: 350px;
   padding: 30px 20px;
 
-  h2 {
+  h1 {
     font-size: 25px;
-    text-align: center;
+  }
+
+  h2 {
+    font-size: 14px;
   }
 
   #options__button {
@@ -33,11 +37,19 @@ body {
 
   .links__holder {
     ul {
+      background-color: red;
       display: flex;
       margin-top: 1em;
       justify-content: space-around;
 
+      li:nth-child(odd) {
+        background: lightgray;
+      }
+
       li {
+        padding: 5px 15px;
+        font-weight: bold;
+
         button {
           border-radius: 25px;
           font-size: 20px;

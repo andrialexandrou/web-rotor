@@ -14,14 +14,17 @@ const Popup: React.FC = (props) => {
 
   return (
     <section id="popup">
-      <h2>Web Content Rotor</h2>
-      <button
-        id="options__button"
-        type="button"
-        onClick={() => {}}
-      >
-        Options Page
-      </button>
+      <h1>Headings</h1>
+      <ul role="listbox" aria-label="something">
+        {props.headings.map((heading, i) => {
+          return <li 
+            role="option" 
+            tabIndex="-1" 
+            key={i}>
+              {heading.level} {heading.textContent}
+          </li>
+        })}
+      </ul>
     </section>
   );
 };
