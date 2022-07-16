@@ -1,17 +1,20 @@
 type Heading = {
     level: number
-    textContent: string
-    'data-id': string
+    textContent: string | null
+    'data-id': HeadingNodeId
 }
 
 type HeadingNodeId = `h-${number}`
 type LandmarkNodeId = `l-${number}`
 type LinkNodeId = `a-${number}`
 
+export type NodeId = HeadingNodeId | LandmarkNodeId | LinkNodeId
+export type Headings = Array<Heading>
+
 export type Message = {
     id: 'init' | 'page_content' | 'jump'
     content?:  {
-        headings?: Array<Heading>
+        headings?: Headings
     }
-    node?: HeadingNodeId | LandmarkNodeId | LinkNodeId
+    node?: NodeId
 }
