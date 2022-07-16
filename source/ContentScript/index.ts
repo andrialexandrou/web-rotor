@@ -11,6 +11,7 @@ let contentPort: chrome.runtime.Port
 chrome.runtime.onConnect.addListener(connectionHandler);
 function connectionHandler (port: chrome.runtime.Port) {
     if (debug) console.log(`port.name: ${port.name}`);
+    if (!port && debug) console.log('could not find port')
     contentPort = port;
     contentPort.onMessage.addListener(portMessageHandler);
 }

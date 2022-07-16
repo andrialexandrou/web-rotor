@@ -1,7 +1,7 @@
 import {NodeId} from '../index'
 const dataPrefix = 'data-rotor'
 
-const debug = true
+const debug = process.env.NODE_ENV ===  "development"
 
 function getHeadingTarget (element: HTMLElement) {
     // First choice: anchor descendant

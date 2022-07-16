@@ -1,6 +1,6 @@
 import * as React from "react";
 import { jumpToDOMNode } from "./index";
-import { Headings, NodeId } from '../index'
+import { NodeId, PageContent } from '../index'
 
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
@@ -13,25 +13,29 @@ function selectItem(nodeId: NodeId) {
   window.close()
 }
 
-// @ts-ignore
-const Popup: React.FC = ({headings}: {headings: Headings}) => {
+const Popup: React.FC<PageContent> = props => {
+  const { headings } = props
   return (
     <section id="popup">
-      <h1>HEADINGS</h1>
-      <Paper sx={{ width: 320 }}>
-        <MenuList dense>
-          {headings.map((heading, i) => {
-            return <MenuItem 
-              className={['heading', `level-${heading.level}`].join(' ')}
-              onClick={() => selectItem(heading['data-id'])}
-              autoFocus={i === 0}
-              key={heading['data-id']}
-            >
-              {heading.level}. {heading.textContent || '[no text content]'}
-            </MenuItem>
-          })}
-        </MenuList>
-      </Paper>
+      {headings
+      ? <div>
+        <h1>HEADINGS</h1>
+        <Paper sx={{ width: 320 }}>
+          <MenuList dense>
+            {headings.map((heading, i) => {
+              return <MenuItem 
+                className={['heading', `level-${heading.level}`].join(' ')}
+                onClick={() => selectItem(heading['data-id'])}
+                autoFocus={i === 0}
+                key={heading['data-id']}
+              >
+                {heading.level}. {heading.textContent || '[no text content]'}
+              </MenuItem>
+            })}
+          </MenuList>
+        </Paper>
+      </div>
+      : <div>No headings found.</div> }
     </section>
   );
 };

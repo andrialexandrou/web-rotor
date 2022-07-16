@@ -15,10 +15,12 @@ export function isHeadingNode(thisNode: NodeId): thisNode is HeadingNodeId {
     return thisNode.startsWith('h-');
 }
 
+export type PageContent = {
+    headings?: Headings
+}
+
 export type Message = {
     id: 'init' | 'page_content' | 'jump'
-    content?:  {
-        headings?: Headings
-    }
+    content?:  PageContent
     node?: NodeId
 }
