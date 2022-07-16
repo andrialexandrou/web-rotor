@@ -6,7 +6,7 @@ import Popup from './Popup';
 
 const debug = process.env.NODE_ENV ===  "development"
 
-ReactDOM.render(<div >Loading.</div>, document.getElementById('popup-root'));
+ReactDOM.render(<div className="loading-screen">Loading...</div>, document.getElementById('popup-root'));
 
 /*
 **  Connect to popup script and set up listener/handler

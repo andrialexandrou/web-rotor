@@ -17,7 +17,7 @@ const Popup: React.FC<PageContent> = props => {
   const { headings } = props
   return (
     <section id="popup">
-      {headings
+      {headings && headings.length
       ? <div>
         <h1>HEADINGS</h1>
         <Paper sx={{ width: 320 }}>
@@ -35,7 +35,7 @@ const Popup: React.FC<PageContent> = props => {
           </MenuList>
         </Paper>
       </div>
-      : <div>No headings found.</div> }
+      : <div className="no-headings">No headings found.</div> }
     </section>
   );
 };
