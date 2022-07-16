@@ -17,5 +17,8 @@
 	"include": [
 		"source",
 		"webpack.config.js"
+	],
+	"types": [
+		"chrome"
 	]
 }
