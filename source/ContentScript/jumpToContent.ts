@@ -1,10 +1,9 @@
-// @ts-nocheck
-
+import {NodeId} from '../index'
 const dataPrefix = 'data-rotor'
 
 const debug = true
 
-function getHeadingTarget (element) {
+function getHeadingTarget (element: HTMLElement) {
     // First choice: anchor descendant
     const anchorDescendant = element.querySelector('a');
     if (anchorDescendant !== null) return anchorDescendant;
@@ -13,23 +12,22 @@ function getHeadingTarget (element) {
     if (anchorAncestor !== null) return anchorAncestor;
     // Default: heading element
     return element;
-  }
+}
 
-function jump(dataId) {
+function jump(dataId: NodeId) {
     let selector = `[${dataPrefix}="${dataId}"]`;
-    let isHeading = dataId.startsWith('h-');
     let target = null;
-    let element = document.querySelector(selector);
+    let element = document.querySelector(selector) as HTMLElement;
+    const getter = getHeadingTarget
     if (element) {
-        target = isHeading ? getHeadingTarget(element) : getLandmarkTarget(element);
+        target = getter(element);
         if (target) {
-            let options = { behavior: 'smooth', block: 'center' };
+            let options = { block: 'center' } as ScrollIntoViewOptions;
             target.setAttribute('tabindex', '-1');
             target.focus();
             target.scrollIntoView(options);
         } else {
-            let status = (target === null) ? 'null' : !isVisible(target) ? 'not visible' : 'unknown';
-            if (debug) console.log(`target: ${target.tagName.toLowerCase()} - status: ${status}`);
+            if (debug) console.log('couldnt find')
         }
     }
 }

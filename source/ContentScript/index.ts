@@ -26,7 +26,7 @@ function portMessageHandler (message: Message) {
         sendMessage(message);
     }
     if (message.id === 'jump') {
-        jump(message.node)
+        if (message.node) jump(message.node)
     }
 }
 
