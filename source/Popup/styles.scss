@@ -11,17 +11,16 @@ body {
   font-size: 14px;
   padding: 10px;
   padding-bottom: 12px;
+  min-width: 200px;
 }
 
 .loading-screen {
-  width: 100px;
   font-style: italic;
   color: darkslategray;
 }
 
 #popup {
   .no-headings {
-    width: 200px;
     font-style: italic;
     color: darkslategray;
   }
