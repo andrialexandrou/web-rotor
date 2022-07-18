@@ -12,7 +12,7 @@
 
 1. Navigate to a website of your choosing
 1. <kbd>Option</kbd> + <kbd>1</kbd> to open popup view of headings
-1. Keyboard navigate to your heading of choice and hit enter to focus. You can also focus
+1. Keyboard navigate to your heading of choice and hit enter to focus.
 
 ## About
 
