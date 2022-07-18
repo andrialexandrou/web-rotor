@@ -3,22 +3,23 @@
 ## Install
 
 1. Clone or download this repo.  
+1. Go to the `extension` subdirectory and unzip `chrome.zip`.
 1. Navigate to [chrome://extensions](chrome://extensions/).
-1. Flip on "Developer Mode" in the upper right-hand corner.
-1. Select "Load unpacked".
-1. Choose the chrome subdirectory. You'll see a `manifest.json`.
+1. Enable "Developer Mode" in the upper right-hand corner.
+1. Activate "Load unpacked".
+1. Upload the unzipped directory.
 
 ## Usage
 
 1. Navigate to a website of your choosing
 1. <kbd>Option</kbd> + <kbd>1</kbd> to open popup view of headings
-1. Keyboard navigate to your heading of choice and hit enter to focus. You can also focus
+1. Keyboard navigate to your heading of choice and hit enter to focus.
 
 ## About
 
 The semantic layer of the web is often obscured by the painted canvas. 
 
-This browser assists in understanding the contents of a page and improves keyboard-only navigation to areas of interest.
+This browser extension assists in understanding the contents of a page and improves keyboard-only navigation to areas of interest.
 
 For now, this browser extension is exclusively supported for Chrome.
 
@@ -26,14 +27,21 @@ For now, this browser extension is exclusively supported for Chrome.
 
 1. Clone or download this repo.  
 1. Install `node_modules` and run dev script to generate the extension.
-    ```
+    ```bash
     npm install
     npm run dev:chrome
     ````
 1. Navigate to [chrome://extensions](chrome://extensions/).
-1. Flip on "Developer Mode" in the upper right-hand corner.
-1. Select "Load unpacked".
-1. Choose the `./extension/chrome` subdirectory. You'll see a `manifest.json`.
+1. Enable "Developer Mode" in the upper right-hand corner.
+1. Activate "Load unpacked".
+1. Choose the `./extension/chrome` subdirectory.
+
+## Build
+
+See the npm scripts for your build options here.
+```bash
+npm run
+```
 
 ### A note on the development workflow:
 
