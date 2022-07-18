@@ -2,8 +2,8 @@
 
 ## Install
 
-1. Clone or download this repo.  
-1. Go to the `extension` subdirectory and unzip `chrome.zip`.
+1. Download `web-rotor.zip` from this repo.  
+1. Unzip.
 1. Navigate to [chrome://extensions](chrome://extensions/).
 1. Enable "Developer Mode" in the upper right-hand corner.
 1. Activate "Load unpacked".
@@ -42,6 +42,8 @@ See the npm scripts for your build options here.
 ```bash
 npm run
 ```
+
+Find the zipped folder (likely in the `./extension` directory), move to root, and rename to `web-rotor.zip`.
 
 ### A note on the development workflow:
 
