@@ -3,10 +3,10 @@
 ## Install
 
 1. Clone or download this repo.  
-1. Navigate to `chrome://extensions`.
+1. Navigate to [chrome://extensions](chrome://extensions/).
 1. Flip on "Developer Mode" in the upper right-hand corner.
 1. Select "Load unpacked".
-1. Choose this unzipped repo folder.
+1. Choose the chrome subdirectory. You'll see a `manifest.json`.
 
 ## Usage
 
@@ -30,10 +30,10 @@ For now, this browser extension is exclusively supported for Chrome.
     npm install
     npm run dev:chrome
     ````
-1. Navigate to `chrome://extensions`.
+1. Navigate to [chrome://extensions](chrome://extensions/).
 1. Flip on "Developer Mode" in the upper right-hand corner.
 1. Select "Load unpacked".
-1. Choose the chrome subdirectory. You'll see a `manifest.json`.
+1. Choose the `./extension/chrome` subdirectory. You'll see a `manifest.json`.
 
 ### A note on the development workflow:
 

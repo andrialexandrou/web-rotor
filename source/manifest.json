@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Page Sailor",
+  "name": "Web Rotor",
   "version": "0.0.0",
   "icons": {
     "16": "assets/icons/favicon-16.png",
@@ -9,8 +9,8 @@
     "128": "assets/icons/favicon-128.png"
   },
   "description": "Sample description",
-  "homepage_url": "https://github.com/abhijithvijayan/web-extension-starter",
-  "short_name": "Sample Name",
+  "homepage_url": "https://github.com/andrialexandrou/web-rotor",
+  "short_name": "Web Rotor",
   "permissions": [
     "activeTab",
     "storage"
@@ -33,9 +33,9 @@
       }
     }
   },
-  "__chrome|firefox__author": "abhijithvijayan",
+  "__chrome|firefox__author": "andrialexandrou",
   "__opera__developer": {
-    "name": "abhijithvijayan"
+    "name": "andrialexandrou"
   },
   "__firefox__applications": {
     "gecko": {
@@ -52,7 +52,7 @@
       "48": "assets/icons/favicon-48.png",
       "128": "assets/icons/favicon-128.png"
     },
-    "default_title": "Page Sailor"
+    "default_title": "Web Rotor"
   },
   "__chrome|opera__options_page": "options.html",
   "options_ui": {
