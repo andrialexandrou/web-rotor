@@ -15,6 +15,8 @@
 1. <kbd>Option</kbd> + <kbd>1</kbd> to open popup view of headings
 1. Keyboard navigate to your heading of choice and hit enter to focus.
 
+![Usage demo of the chrome extension, in which I open the popup on a Wikipedia article, down arrow to a heading, hit enter, the popup closes, and the page scrolls to the heading I selected.](https://user-images.githubusercontent.com/14981214/179573535-a5a7b971-9bb8-4d14-96d7-4ecce910117c.gif)
+
 ## About
 
 The semantic layer of the web is often obscured by the painted canvas. 
