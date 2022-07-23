@@ -56,21 +56,13 @@ Find the zipped folder (likely in the `./extension` directory), move to root, an
 
 This browser extension starter uses webpack and leverages a hot reloading server. However, you may still need to reload the extension in `chrome://extensions` depending on where you are making changes. 
 
+## Feedback
+
+Please [open an issue](https://github.com/andrialexandrou/web-rotor/issues/new)!
+
 ## Credits
 
 <a href="https://www.flaticon.com/free-icons/relationship">Extension icon</a> created by Freepik - Flaticon.
 
 The [browser extension template](https://github.com/abhijithvijayan/web-extension-starter) was made by <a href="https://twitter.com/_abhijithv">@abhijithvijayan</a>.
-
-### Features of the template
-
-- Cross Browser Support (Web-Extensions API)
-- Browser Tailored Manifest generation
-- Automatic build on code changes
-- Auto packs browser specific build files
-- SASS styling
-- TypeScript by default
-- ES6 modules support
-- React UI Library by default
-- Smart reload
 
