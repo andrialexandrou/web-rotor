@@ -8,8 +8,7 @@
 1. Enable "Developer Mode" in the upper right-hand corner.
 1. Activate "Load unpacked".
 1. Upload the unzipped directory.
-1. (optional) Map a keyboard shortcut of your choosing
-    - **the default is <kbd>Option</kbd> + <kbd>1</kbd>**
+1. (optional) Change the default (<kbd>Option</kbd> + <kbd>1</kbd>) keyboard shortcut
     - Go to `chrome://extensions/shortcuts`
     - Under Web Rotor options, activate the edit control
     - Key your desired shortcut
