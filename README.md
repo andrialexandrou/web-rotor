@@ -4,10 +4,15 @@
 
 1. Download `web-rotor.zip` from this repo.  
 1. Unzip.
-1. Navigate to [chrome://extensions](chrome://extensions/).
+1. Navigate to `chrome://extensions`.
 1. Enable "Developer Mode" in the upper right-hand corner.
 1. Activate "Load unpacked".
 1. Upload the unzipped directory.
+1. (optional) Change the default (<kbd>Option</kbd> + <kbd>1</kbd>) keyboard shortcut
+    - Go to `chrome://extensions/shortcuts`
+    - Under Web Rotor options, activate the edit control
+    - Key your desired shortcut
+    - Confirm in a different tab; browser restart may be necessary
 
 ## Usage
 
@@ -33,7 +38,7 @@ For now, this browser extension is exclusively supported for Chrome.
     npm install
     npm run dev:chrome
     ````
-1. Navigate to [chrome://extensions](chrome://extensions/).
+1. Navigate to `chrome://extensions`.
 1. Enable "Developer Mode" in the upper right-hand corner.
 1. Activate "Load unpacked".
 1. Choose the `./extension/chrome` subdirectory.
@@ -49,7 +54,7 @@ Find the zipped folder (likely in the `./extension` directory), move to root, an
 
 ### A note on the development workflow:
 
-This browser extension starter uses webpack and leverages a hot reloading server. However, you may still need to reload the extension in `chrome://extensions/` depending on where you are making changes. 
+This browser extension starter uses webpack and leverages a hot reloading server. However, you may still need to reload the extension in `chrome://extensions` depending on where you are making changes. 
 
 ## Credits
 
