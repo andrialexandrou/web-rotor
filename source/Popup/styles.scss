@@ -20,6 +20,19 @@ body {
 }
 
 #popup {
+  .MuiBox-root {
+    padding: 0;
+    min-height: unset;
+  }
+
+  .MuiTabs-root {
+    min-height: unset;
+  }
+
+  .MuiButtonBase-root {
+    min-height: unset;
+  }
+
   .no-headings {
     font-style: italic;
     color: darkslategray;
