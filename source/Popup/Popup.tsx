@@ -42,8 +42,9 @@ function TabPanel(props: TabPanelProps) {
 }
 
 const Popup: React.FC<PageContent> = props => {
-  const { headings } = props
-  const [value, setValue] = React.useState(0);
+  const { headings, landmarks } = props
+  const [value, setValue] = React.useState(1);
+  console.log('=>', landmarks)
 
   function a11yProps(index: number) {
     return {
@@ -58,8 +59,7 @@ const Popup: React.FC<PageContent> = props => {
   };
   return (
     <section id="popup">
-      {headings && headings.length
-      ? <Paper sx={{ width: 320 }}>
+      <Paper sx={{ width: 320 }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
             <Tab label="Headings" {...a11yProps(0)} />
@@ -67,8 +67,10 @@ const Popup: React.FC<PageContent> = props => {
             <Tab label="Options" {...a11yProps(2)} />
           </Tabs>
         </Box>
+
         <TabPanel value={value} index={0}>
-          <MenuList dense>
+          {headings && headings.length 
+          ? <MenuList dense>
             {headings.map((heading, i) => {
               return <MenuItem 
                 className={['heading', `level-${heading.level}`].join(' ')}
@@ -80,35 +82,29 @@ const Popup: React.FC<PageContent> = props => {
               </MenuItem>
             })}
           </MenuList>
+          : <div className="no-headings">No headings found.</div> }
         </TabPanel>
+
         <TabPanel value={value} index={1}>
-          <MenuList dense>
-            <MenuItem
-              className={['heading', `level-3`].join(' ')}
-              onClick={() => console.log('clicked!')}
-              autoFocus
-            >
-              Main
-            </MenuItem>
-            <MenuItem
-              className={['heading', `level-3`].join(' ')}
-              onClick={() => console.log('clicked!')}
-            >
-              Sidebar
-            </MenuItem>
-            <MenuItem
-              className={['heading', `level-3`].join(' ')}
-              onClick={() => console.log('clicked!')}
-            >
-              Footer
-            </MenuItem>
-          </MenuList>
+          {landmarks && landmarks.length 
+            ? <MenuList dense>
+              {landmarks.map((landmark, i) => {
+                return <MenuItem
+                  className={['heading'].join(' ')}
+                  onClick={() => selectItem(landmark['data-id'])}
+                  autoFocus={i === 0}
+                >
+                  {landmark.content}
+                </MenuItem>
+              })}
+            </MenuList>
+            : <div className="no-headings">No landmarks found.</div>}
         </TabPanel>
+
         <TabPanel value={value} index={2}>
           Please visit <a href="https://www.github.com/andrialexandrou/web-rotor">web-rotor repository</a>.
         </TabPanel>
       </Paper>
-      : <div className="no-headings">No headings found.</div> }
     </section>
   );
 };

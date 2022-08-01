@@ -4,6 +4,11 @@ type Heading = {
     'data-id': HeadingNodeId
 }
 
+type Landmark = {
+    content: string | null
+    'data-id': LandmarkNodeId
+}
+
 type HeadingNodeId = `h-${number}`
 type LandmarkNodeId = `l-${number}`
 type LinkNodeId = `a-${number}`
@@ -16,7 +21,8 @@ export function isHeadingNode(thisNode: NodeId): thisNode is HeadingNodeId {
 }
 
 export type PageContent = {
-    headings?: Headings
+    headings?: Headings,
+    landmarks?: Array<Landmark>
 }
 
 export type Message = {
