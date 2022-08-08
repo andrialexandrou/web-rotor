@@ -20,6 +20,10 @@ body {
 }
 
 #popup {
+  a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
   .MuiBox-root {
     padding: 0;
     min-height: unset;
@@ -70,6 +74,10 @@ body {
     &:nth-child(odd) {
       background-color: $gray;
     }
+  }
+
+  .options {
+    margin: 4px 18px;
   }
 
   .level-1 {

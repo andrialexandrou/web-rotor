@@ -1,18 +1,19 @@
 // @ts-ignore
 
 import * as React from "react";
-import { jumpToDOMNode } from "./index";
-import { NodeId, PageContent } from '../index'
 
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 // import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 
 import "./styles.scss";
+import { jumpToDOMNode } from "./index";
+import { NodeId, PageContent } from '../index';
 
 function selectItem(nodeId: NodeId) {
   jumpToDOMNode(nodeId)
@@ -44,7 +45,6 @@ function TabPanel(props: TabPanelProps) {
 const Popup: React.FC<PageContent> = props => {
   const { headings, landmarks } = props
   const [value, setValue] = React.useState(1);
-  console.log('=>', landmarks)
 
   function a11yProps(index: number) {
     return {
@@ -54,7 +54,6 @@ const Popup: React.FC<PageContent> = props => {
   }
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    console.log('event', event)
     setValue(newValue);
   };
   return (
@@ -93,6 +92,7 @@ const Popup: React.FC<PageContent> = props => {
                   className={['heading'].join(' ')}
                   onClick={() => selectItem(landmark['data-id'])}
                   autoFocus={i === 0}
+                  key={landmark['data-id']}
                 >
                   {landmark.content}
                 </MenuItem>
@@ -102,7 +102,9 @@ const Popup: React.FC<PageContent> = props => {
         </TabPanel>
 
         <TabPanel value={value} index={2}>
-          Please visit <a href="https://www.github.com/andrialexandrou/web-rotor">web-rotor repository</a>.
+          <div className="options">
+            Please visit <Link href="https://www.github.com/andrialexandrou/web-rotor">web-rotor repository</Link>.
+          </div>
         </TabPanel>
       </Paper>
     </section>

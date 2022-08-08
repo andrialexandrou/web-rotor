@@ -18,10 +18,9 @@ function connectionHandler (port: chrome.runtime.Port) {
 }
 function portMessageHandler (message: Message) {
     if (message.id === 'init') {
-        console.log('init')
+        if (debug) console.log('init')
         const headings = refAndGetHeadings(document, {dataPrefix})
         const landmarks = refAndGetLandmarks(document, {dataPrefix})
-        console.log('landmarks', landmarks)
         const message: Message = {
             id: 'page_content',
             content: {
