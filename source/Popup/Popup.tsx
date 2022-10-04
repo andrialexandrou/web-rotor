@@ -44,7 +44,7 @@ function TabPanel(props: TabPanelProps) {
 
 const Popup: React.FC<PageContent> = props => {
   const { headings, landmarks } = props
-  const [value, setValue] = React.useState(1);
+  const [value, setValue] = React.useState(0);
 
   function a11yProps(index: number) {
     return {
@@ -54,6 +54,7 @@ const Popup: React.FC<PageContent> = props => {
   }
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    console.log('event', event)
     setValue(newValue);
   };
   return (
