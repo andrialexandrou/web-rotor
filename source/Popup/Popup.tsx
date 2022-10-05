@@ -107,8 +107,8 @@ const Popup: React.FC<PageContent> = props => {
     <section id="popup">
       <Paper sx={{ width: 320 }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs value={value} onChange={handleChange} aria-label="entities">
-            <Tab icon={<LandscapeIcon />} label="Headings & Regions" {...a11yProps(0)} />
+          <Tabs selectionFollowsFocus value={value} onChange={handleChange} aria-label="entities">
+            <Tab autoFocus icon={<LandscapeIcon />} label="Regions & Headings" {...a11yProps(0)} />
             <Tab icon={<LinkIcon />} label="Links" {...a11yProps(1)} />
             <Tab icon={<ImageSearchIcon />} label="Images" {...a11yProps(2)} />
             {/* <Tab icon={<SettingsIcon />} label="Options" {...a11yProps(3)} /> */}
@@ -141,7 +141,6 @@ const Popup: React.FC<PageContent> = props => {
                 return <MenuItem
                   className={classes.join(' ')}
                   onClick={() => selectItem(entity['data-id'])}
-                  autoFocus={i === 0}
                   key={entity['data-id']}
                 >
                   {visibleText}
@@ -158,7 +157,6 @@ const Popup: React.FC<PageContent> = props => {
                 return <MenuItem
                   className="heading"
                   onClick={() => selectItem(link['data-id'])}
-                  autoFocus={i === 0}
                   key={link['data-id']}
                 >
                   {link.content}
@@ -177,7 +175,6 @@ const Popup: React.FC<PageContent> = props => {
                 return <MenuItem
                   onClick={() => selectItem(image['data-id'])}
                   className={classes.join(' ')}
-                  autoFocus={i === 0}
                   key={image['data-id']}
                 >
                   {image.content}
@@ -188,7 +185,6 @@ const Popup: React.FC<PageContent> = props => {
         </TabPanel>
 
         <TabPanel value={value} index={3}>
-          helloehellelo
           <div className="options">
             Please visit <Link href="https://www.github.com/andrialexandrou/web-rotor">web-rotor repository</Link>.
           </div>
