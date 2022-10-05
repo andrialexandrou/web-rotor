@@ -10,6 +10,11 @@ import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
+import LinkIcon from '@mui/icons-material/Link';
+import LandscapeIcon from '@mui/icons-material/Landscape';
+import ImageSearchIcon from '@mui/icons-material/ImageSearch';
+import SettingsIcon from '@mui/icons-material/Settings';
+
 
 import "./styles.scss";
 import { jumpToDOMNode } from "./index";
@@ -96,18 +101,17 @@ const Popup: React.FC<PageContent> = props => {
       'aria-controls': `simple-tabpanel-${index}`,
     };
   }
-  console.log('image', images)
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => setValue(newValue);
   return (
     <section id="popup">
       <Paper sx={{ width: 320 }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={handleChange} aria-label="entities">
-            <Tab label="Headings & Regions" {...a11yProps(0)} />
-            <Tab label="Links" {...a11yProps(1)} />
-            <Tab label="Images" {...a11yProps(2)} />
-            <Tab label="Form Fields" {...a11yProps(3)} />
-            <Tab label="Options" {...a11yProps(4)} />
+            <Tab icon={<LandscapeIcon />} label="Headings & Regions" {...a11yProps(0)} />
+            <Tab icon={<LinkIcon />} label="Links" {...a11yProps(1)} />
+            <Tab icon={<ImageSearchIcon />} label="Images" {...a11yProps(2)} />
+            {/* <Tab icon={<SettingsIcon />} label="Options" {...a11yProps(3)} /> */}
           </Tabs>
         </Box>
 
@@ -147,7 +151,6 @@ const Popup: React.FC<PageContent> = props => {
             : <div className="no-headings">No entities found.</div>}
         </TabPanel>
 
-              {/* copilot demo */}
         <TabPanel value={value} index={1}>
           {links && links.length
             ? <MenuList dense>
@@ -184,7 +187,8 @@ const Popup: React.FC<PageContent> = props => {
             : <div className="no-headings">No images found.</div>}
         </TabPanel>
 
-        <TabPanel value={value} index={4}>
+        <TabPanel value={value} index={3}>
+          helloehellelo
           <div className="options">
             Please visit <Link href="https://www.github.com/andrialexandrou/web-rotor">web-rotor repository</Link>.
           </div>
