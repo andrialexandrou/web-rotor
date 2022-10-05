@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import isVisible from "./isVisible";
 import {LandmarkNodeId, Landmark} from "../index"
 
 function capitalizeWord(stringy) {
@@ -11,12 +12,14 @@ function capitalizeWord(stringy) {
     }).join('')
 }
 
-const landmarksSelectorString = 'main,[role=main],[role=banner],nav,[role=navigation],footer,[role=contentinfo]'
+const landmarksSelectorString = 'main,[role=main],[role=search],[role=banner],nav,[role=navigation],aside,footer,[role=contentinfo]'
 
 function refAndGetLandmarks(document: Document, {dataPrefix}: {dataPrefix: string}) {
     const landmarks: Array<Landmark> = []
     const landmarksFromDOM = document.querySelectorAll(landmarksSelectorString) as NodeListOf<HTMLElement|HTMLDivElement>;
     landmarksFromDOM.forEach((element: HTMLElement, i: number) => {
+        if (!isVisible(element)) return
+
         const dataId: LandmarkNodeId = `l-${i}`
         element.setAttribute(dataPrefix, dataId);
         const type = element.role || element.tagName.toLowerCase()
@@ -33,7 +36,9 @@ function refAndGetLandmarks(document: Document, {dataPrefix}: {dataPrefix: strin
         // next to annotate the content from aria-labelledby
         landmarks.push({
             'data-id': dataId,
-            content: visibleLabel
+            type: 'landmark',
+            content: visibleLabel,
+            role: type
         });
     });
     return landmarks

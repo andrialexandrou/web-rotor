@@ -50,7 +50,12 @@ function requestDOMData() {
 connectToTab()
     
 function paintPopup(content: PageContent) {
-    ReactDOM.render(<Popup headings={content.headings} landmarks={content.landmarks} />, document.getElementById('popup-root'));
+    console.log('content', content)
+    ReactDOM.render(<Popup 
+        headings={content.headings} 
+        links={content.links}
+        landmarks={content.landmarks} />, 
+        document.getElementById('popup-root'));
 }
 
 function jumpToDOMNode(nodeId: NodeId) {

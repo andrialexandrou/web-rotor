@@ -16,9 +16,10 @@ function refAndGetHeadings(document: Document, {dataPrefix}: {dataPrefix: string
         const headingLevel = element.tagName.replace('H', '')
         const headingInt = Number(headingLevel)
         headings.push({
+            type: 'heading',
             level: headingInt,
             'data-id': dataId,
-            textContent: element.textContent
+            content: element.textContent
         });
     });
     return headings
