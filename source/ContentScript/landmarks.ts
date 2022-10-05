@@ -14,7 +14,7 @@ function capitalizeWord(stringy) {
 
 const landmarksSelectorString = 'main,[role=main],[role=search],[role=banner],nav,[role=navigation],aside,footer,[role=contentinfo]'
 
-function refAndGetLandmarks(document: Document, {dataPrefix}: {dataPrefix: string}) {
+function refAndGetLandmarks(document: Document, {dataPrefix}: {dataPrefix: string}): Landmarks {
     const landmarks: Array<Landmark> = []
     const landmarksFromDOM = document.querySelectorAll(landmarksSelectorString) as NodeListOf<HTMLElement|HTMLDivElement>;
     landmarksFromDOM.forEach((element: HTMLElement, i: number) => {

@@ -81,10 +81,11 @@ function sort(elements: Landmarks): Landmarks {
 const Popup: React.FC<PageContent> = props => {
   const { 
     headings, 
+    images,
     landmarks,
     links 
   } = props
-  const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(0);
 
   const orderedLandmarks = sort(landmarks)
   const headingsAndLandmarks = [...orderedLandmarks, 'break', ...headings]
@@ -95,7 +96,7 @@ const Popup: React.FC<PageContent> = props => {
       'aria-controls': `simple-tabpanel-${index}`,
     };
   }
-
+  console.log('image', images)
   const handleChange = (event: React.SyntheticEvent, newValue: number) => setValue(newValue);
   return (
     <section id="popup">
@@ -152,8 +153,8 @@ const Popup: React.FC<PageContent> = props => {
             ? <MenuList dense>
               {links.map((link, i) => {
                 return <MenuItem
-                  onClick={() => selectItem(link['data-id'])}
                   className="heading"
+                  onClick={() => selectItem(link['data-id'])}
                   autoFocus={i === 0}
                   key={link['data-id']}
                 >
@@ -162,6 +163,25 @@ const Popup: React.FC<PageContent> = props => {
               })}
             </MenuList>
             : <div className="no-headings">No links found.</div>}
+        </TabPanel>
+
+        <TabPanel value={value} index={2}>
+          {images && images.length
+            ? <MenuList dense>
+              {images.map((image, i) => {
+                const classes = ['heading']
+                if (image.isFallbackText) classes.push('is-fallback-text')
+                return <MenuItem
+                  onClick={() => selectItem(image['data-id'])}
+                  className={classes.join(' ')}
+                  autoFocus={i === 0}
+                  key={image['data-id']}
+                >
+                  {image.content}
+                </MenuItem>
+              })}
+            </MenuList>
+            : <div className="no-headings">No images found.</div>}
         </TabPanel>
 
         <TabPanel value={value} index={4}>

@@ -3,7 +3,7 @@ import isVisible from "./isVisible";
 
 import { showVisibleHeadingsOnly } from "./defaultSettings.json";
 
-function refAndGetHeadings(document: Document, {dataPrefix}: {dataPrefix: string}) {
+function refAndGetHeadings(document: Document, {dataPrefix}: {dataPrefix: string}): Headings {
     const headings: Headings = []
     const headingsFromDOM = document.querySelectorAll("h1, h2, h3, h4, h5, h6") as NodeListOf<HTMLHeadingElement>;
     headingsFromDOM.forEach((element: HTMLHeadingElement, i: number) => {

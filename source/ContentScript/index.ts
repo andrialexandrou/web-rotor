@@ -1,8 +1,8 @@
+import jump from "./jumpToContent";
+import refAndGetLinks from "./links";
+import refAndGetImages from "./images";
 import refAndGetHeadings from "./headings"
 import refAndGetLandmarks from "./landmarks"
-import refAndGetLinks from "./links";
-import jump from "./jumpToContent";
-
 import {Message} from '../index'
 
 const dataPrefix = 'data-rotor'
@@ -24,12 +24,14 @@ function portMessageHandler (message: Message) {
         const headings = refAndGetHeadings(document, {dataPrefix})
         const landmarks = refAndGetLandmarks(document, {dataPrefix})
         const links = refAndGetLinks(document, {dataPrefix})
+        const images = refAndGetImages(document, {dataPrefix})
         const message: Message = {
             id: 'page_content',
             content: {
                 headings,
                 landmarks,
-                links
+                links,
+                images
             }
         }
         sendMessage(message);

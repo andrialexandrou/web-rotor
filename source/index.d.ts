@@ -1,3 +1,11 @@
+type Image = {
+    content: string
+    type: 'image'
+    'data-id': ImageNodeId
+    content: string | null
+    isFallbackText: boolean
+}
+
 type Link = {
     content: string
     type: 'link'
@@ -24,11 +32,13 @@ type Landmark = {
 type HeadingNodeId = `h-${number}`
 type LandmarkNodeId = `d-${number}`
 type LinkNodeId = `k-${number}`
+type ImageNodeId = `g-${number}`
 
 export type NodeId = HeadingNodeId | LandmarkNodeId | LinkNodeId
 export type Headings = Array<Heading>
 export type Landmarks = Array<Landmark>
 export type Links = Array<Link>
+export type Images = Array<Image>
 
 export function isHeadingNode(thisNode: NodeId): thisNode is HeadingNodeId {
     return thisNode.startsWith('h-');
@@ -38,6 +48,7 @@ export type PageContent = {
     headings?: Headings
     landmarks?: Landmarks
     links?: Links
+    images?: Images
 }
 
 export type Message = {

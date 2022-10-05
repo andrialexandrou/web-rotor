@@ -53,8 +53,10 @@ function paintPopup(content: PageContent) {
     console.log('content', content)
     ReactDOM.render(<Popup 
         headings={content.headings} 
+        images={content.images}
+        landmarks={content.landmarks}
         links={content.links}
-        landmarks={content.landmarks} />, 
+        />, 
         document.getElementById('popup-root'));
 }
 
