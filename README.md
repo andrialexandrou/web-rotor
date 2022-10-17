@@ -60,6 +60,12 @@ This browser extension starter uses webpack and leverages a hot reloading server
 
 Please [open an issue](https://github.com/andrialexandrou/web-rotor/issues/new)!
 
+## Inspiration
+
+Inspiration for this tool derives primarily from NVDA.
+
+The Chrome browser extension that lets me regain some of that functionality when I'm not using a screenreader is [SkipTo](https://github.com/skipto-landmarks-headings/browser-extension).
+
 ## Credits
 
 <a href="https://www.flaticon.com/free-icons/relationship">Extension icon</a> created by Freepik - Flaticon.
