@@ -12,6 +12,7 @@ body {
   padding: 10px;
   padding-bottom: 12px;
   min-width: 200px;
+  width: 400px;
 }
 
 .loading-screen {
@@ -20,6 +21,23 @@ body {
 }
 
 #popup {
+  a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  .MuiBox-root {
+    padding: 0;
+    min-height: unset;
+  }
+
+  .MuiTabs-root {
+    min-height: unset;
+  }
+
+  .MuiButtonBase-root {
+    min-height: unset;
+  }
+
   .no-headings {
     font-style: italic;
     color: darkslategray;
@@ -46,6 +64,7 @@ body {
     padding-top: 2px;
     padding-bottom: 2px;
     min-height: 28px;
+    white-space: normal;
 
     &:focus,
     &:active,
@@ -57,6 +76,10 @@ body {
     &:nth-child(odd) {
       background-color: $gray;
     }
+  }
+
+  .options {
+    margin: 4px 18px;
   }
 
   .level-1 {
@@ -81,5 +104,10 @@ body {
 
   .level-6 {
     padding-left: 96px;
+  }
+
+  .is-fallback-text {
+    color: darkviolet;
+    font-style: italic;
   }
 }

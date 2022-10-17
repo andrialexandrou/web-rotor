@@ -1,5 +1,8 @@
-import refAndGetHeadings from "./headings"
 import jump from "./jumpToContent";
+import refAndGetLinks from "./links";
+import refAndGetImages from "./images";
+import refAndGetHeadings from "./headings"
+import refAndGetLandmarks from "./landmarks"
 import {Message} from '../index'
 
 const dataPrefix = 'data-rotor'
@@ -17,11 +20,18 @@ function connectionHandler (port: chrome.runtime.Port) {
 }
 function portMessageHandler (message: Message) {
     if (message.id === 'init') {
+        if (debug) console.log('init')
         const headings = refAndGetHeadings(document, {dataPrefix})
+        const landmarks = refAndGetLandmarks(document, {dataPrefix})
+        const links = refAndGetLinks(document, {dataPrefix})
+        const images = refAndGetImages(document, {dataPrefix})
         const message: Message = {
             id: 'page_content',
             content: {
-                headings
+                headings,
+                landmarks,
+                links,
+                images
             }
         }
         sendMessage(message);
