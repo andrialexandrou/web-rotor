@@ -1,6 +1,6 @@
 # webpage rotor browser extension
 
-## Install
+## Install for Chrome
 
 1. Download `web-rotor.zip` from this repo.  
 1. Unzip.
@@ -28,7 +28,7 @@ The semantic layer of the web is often obscured by the painted canvas.
 
 This browser extension assists in understanding the contents of a page and improves keyboard-only navigation to areas of interest.
 
-For now, this browser extension is exclusively supported for Chrome.
+For now, this browser extension is exclusively supported for Chrome and Microsoft Edge. Note that the Edge installation method may vary slightly from the Chrome install steps.
 
 ## Development
 
